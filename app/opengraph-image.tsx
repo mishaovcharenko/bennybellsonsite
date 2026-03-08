@@ -4,7 +4,11 @@ export const alt = "Benny Bellson";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OGImage() {
+export default async function OGImage() {
+  const serifFont = await fetch(
+    "https://cdn.jsdelivr.net/fontsource/fonts/libre-baskerville@latest/latin-400-normal.woff"
+  ).then((r) => r.arrayBuffer());
+
   return new ImageResponse(
     (
       <div
@@ -16,6 +20,7 @@ export default function OGImage() {
           alignItems: "center",
           justifyContent: "center",
           background: "black",
+          fontFamily: "Serif",
           position: "relative",
         }}
       >
@@ -33,7 +38,6 @@ export default function OGImage() {
         <span
           style={{
             fontSize: 120,
-            fontWeight: 700,
             color: "white",
             letterSpacing: -2,
             lineHeight: 1,
@@ -54,6 +58,16 @@ export default function OGImage() {
         </span>
       </div>
     ),
-    { ...size }
+    {
+      ...size,
+      fonts: [
+        {
+          name: "Serif",
+          data: serifFont,
+          style: "normal",
+          weight: 400,
+        },
+      ],
+    }
   );
 }
