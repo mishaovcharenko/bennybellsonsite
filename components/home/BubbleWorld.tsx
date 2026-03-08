@@ -392,7 +392,7 @@ export function BubbleWorld() {
         </AnimatePresence>
         <p className="text-white/20 text-[10px] font-sans mt-1 pointer-events-auto">
           built by misha from{" "}
-          <a href="https://seatlock.app" target="_blank" rel="noopener noreferrer" className="underline hover:text-white/40 transition-colors">
+          <a href="https://seatlock.app" target="_blank" rel="noopener noreferrer" className="hover:text-white/40 transition-colors">
             SeatLock
           </a>
         </p>
