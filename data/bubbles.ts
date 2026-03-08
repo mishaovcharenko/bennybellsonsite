@@ -72,7 +72,7 @@ export const bubbles: BubbleConfig[] = [
   {
     id: "watch",
     label: "Watch",
-    href: site.youtubeUrl + "/videos" ?? "https://www.youtube.com/@bennybellson/videos",
+    href: (site.youtubeUrl ?? "https://www.youtube.com/@bennybellson") + "/videos",
     type: "external",
     size: "sm",
     priority: 6,
