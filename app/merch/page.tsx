@@ -10,7 +10,7 @@ export default function MerchPage() {
     <PageShell>
       <SectionHero
         title="Merch"
-        subtitle="Limited drops and collections."
+        subtitle="Official merch drops. Limited runs when available."
       />
       {featuredMerch.length > 0 && (
         <section className="mb-16">

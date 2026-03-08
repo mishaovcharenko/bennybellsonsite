@@ -6,25 +6,34 @@ import { contacts } from "@/data/contacts";
 
 export default function InfoPage() {
   const socials = [
-    { label: "Twitter", href: site.twitterUrl },
     { label: "Instagram", href: site.instagramUrl },
-    { label: "TikTok", href: site.tiktokUrl },
     { label: "YouTube", href: site.youtubeUrl },
+    { label: "TikTok", href: site.tiktokUrl },
+    { label: "SoundCloud", href: site.soundcloudUrl },
   ].filter((s) => s.href);
 
   return (
     <PageShell>
       <SectionHero
         title="Info"
-        subtitle="Contact, management, press."
+        subtitle="Contact & newsletter. Press/booking on request."
       />
       <section className="mb-16">
         <h2 className="text-sm uppercase tracking-wider text-white/50 mb-4">
           Bio
         </h2>
-        <p className="text-white/80 leading-relaxed max-w-xl">
-          Artist. Making music and building a world. Independent. Part of Twisted n Luv.
-        </p>
+        <div className="space-y-3 text-white/80 leading-relaxed max-w-xl">
+          <p>
+            Benny Bellson is a California-born independent alternative artist known for eccentric
+            vocal inflections and genre-blending songwriting, with a catalog that has recently surged
+            on streaming platforms.
+          </p>
+          <p>
+            From an early grungy debut with &quot;Wasteful Games&quot; through the &quot;Posters&quot; era and
+            into the breakout moment of &quot;theclubrock,&quot; the trajectory has been a steady build —
+            now at ~2.3M monthly listeners on Spotify. Part of the Twisted N&apos; Luv collective.
+          </p>
+        </div>
       </section>
       <section className="mb-16">
         <h2 className="text-sm uppercase tracking-wider text-white/50 mb-4">

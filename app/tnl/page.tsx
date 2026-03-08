@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { PageShell } from "@/components/layout/PageShell";
 import { SectionHero } from "@/components/ui/SectionHero";
 import { CollectiveCard } from "@/components/tnl/CollectiveCard";
@@ -18,7 +17,7 @@ export default function TNLPage() {
       </section>
       <section className="mb-16">
         <h2 className="text-sm uppercase tracking-wider text-white/50 mb-4">
-          Collaborators
+          Members
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {tnlData.members.map((member) => (
@@ -28,18 +27,23 @@ export default function TNLPage() {
       </section>
       <section>
         <h2 className="text-sm uppercase tracking-wider text-white/50 mb-4">
-          Explore
+          Links
         </h2>
         <div className="flex flex-wrap gap-4">
-          {tnlData.relatedLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="text-white/80 hover:text-white underline"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {tnlData.relatedLinks.map((link) => {
+            const isExternal = link.href.startsWith("http");
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
+                className="text-white/80 hover:text-white underline"
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </div>
       </section>
     </PageShell>

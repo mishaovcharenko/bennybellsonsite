@@ -1,18 +1,28 @@
 import type { TNLConfig } from "@/lib/types";
 
 export const tnlData: TNLConfig = {
-  title: "Twisted n Luv",
-  subtitle: "A collective. A world.",
+  title: "Twisted N' Luv",
+  subtitle: "Twisted N' Luv world: music + street shows + archive.",
   manifesto:
-    "We build in the margins. Music, visuals, and community that don't fit the grid. Twisted n Luv is the space for that — a shared universe of collaborators and friends.",
+    "Twisted N' Luv like Guns N' Roses. A collective built in the margins — music, visuals, street shows, and community that don't fit the grid.",
   members: [
     { id: "tnl1", name: "Benny Bellson", role: "Artist" },
-    { id: "tnl2", name: "Collaborator A", role: "Producer" },
-    { id: "tnl3", name: "Collaborator B", role: "Visuals" },
+    { id: "tnl2", name: "Sha Crow", role: "Artist" },
   ],
   relatedLinks: [
+    {
+      label: "TNL on Spotify",
+      href: "https://open.spotify.com/artist/4pXR8awl28k2FwjDS2WjEb",
+    },
+    {
+      label: "TNL on Instagram",
+      href: "https://www.instagram.com/twistednluvv/",
+    },
+    {
+      label: "Needa Bih (OMG) — Apple Music",
+      href: "https://music.apple.com/us/album/needa-bih-omg-single/1824738489",
+    },
     { label: "Releases", href: "/listen" },
     { label: "Shows", href: "/shows" },
-    { label: "Merch", href: "/merch" },
   ],
 };

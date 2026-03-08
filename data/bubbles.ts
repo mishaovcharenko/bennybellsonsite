@@ -7,10 +7,6 @@ export function getBubbleRadius(size: BubbleConfig["size"]): number {
   return BUBBLE_SIZES[size];
 }
 
-/**
- * Bubble config: each bubble can be external (direct link), modal (overlay), or internal (full page).
- * Homepage is the main experience; most bubbles are direct portals.
- */
 export const bubbles: BubbleConfig[] = [
   {
     id: "unreleased",
@@ -20,7 +16,7 @@ export const bubbles: BubbleConfig[] = [
     modalType: "unreleased",
     size: "lg",
     priority: 1,
-    description: "Demos, snippets, secret drops",
+    description: "Snippets + vault",
   },
   {
     id: "listen",
@@ -30,7 +26,7 @@ export const bubbles: BubbleConfig[] = [
     modalType: "listen",
     size: "lg",
     priority: 2,
-    description: "Music hub — Spotify, Apple Music, more",
+    description: "Choose your platform",
   },
   {
     id: "history",
@@ -40,16 +36,16 @@ export const bubbles: BubbleConfig[] = [
     modalType: "history",
     size: "md",
     priority: 3,
-    description: "Artist lore, timeline, archive",
+    description: "Archive",
   },
   {
     id: "twitter",
-    label: "Twitter",
-    href: site.twitterUrl ?? "https://twitter.com/bennybellson",
+    label: "Social",
+    href: site.instagramUrl ?? "https://www.instagram.com/bennybellson/",
     type: "external",
     size: "sm",
     priority: 4,
-    description: "Social",
+    description: "Updates",
     externalIcon: true,
     openInNewTab: true,
   },
@@ -66,31 +62,31 @@ export const bubbles: BubbleConfig[] = [
   {
     id: "shows",
     label: "Shows",
-    href: site.bandsintownUrl ?? "#",
+    href: "#",
     type: "modal",
     modalType: "shows",
     size: "lg",
     priority: 5,
-    description: "Tour dates, events",
+    description: "Dates update fast",
   },
   {
     id: "watch",
     label: "Watch",
-    href: site.youtubeUrl ?? "https://youtube.com/@bennybellson",
+    href: site.youtubeUrl + "/videos" ?? "https://www.youtube.com/@bennybellson/videos",
     type: "external",
     size: "sm",
     priority: 6,
-    description: "Videos, music videos",
+    description: "Videos + live clips",
     openInNewTab: true,
   },
   {
     id: "merch",
     label: "Merch",
-    href: site.merchStoreUrl ?? "#",
+    href: site.merchStoreUrl ?? "https://www.iluvbennyb.com/store-2",
     type: "external",
     size: "lg",
     priority: 7,
-    description: "Store",
+    description: "Shop the drop",
     openInNewTab: true,
   },
   {
@@ -101,7 +97,7 @@ export const bubbles: BubbleConfig[] = [
     modalType: "info",
     size: "sm",
     priority: 8,
-    description: "Contact, management, press",
+    description: "Contact / Newsletter",
   },
   {
     id: "tnl",
@@ -111,7 +107,7 @@ export const bubbles: BubbleConfig[] = [
     modalType: "tnl",
     size: "lg",
     priority: 9,
-    description: "Twisted n Luv — collective",
+    description: "Twisted N' Luv — collective",
     accent: true,
   },
 ];

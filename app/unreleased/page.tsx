@@ -8,7 +8,7 @@ export default function UnreleasedPage() {
     <PageShell>
       <SectionHero
         title="Unreleased"
-        subtitle="Demos, snippets, secret drops. Some are locked — more coming soon."
+        subtitle="Demos, snippets, and secret drops. Some items may be locked."
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {unreleasedItems.map((item) => (

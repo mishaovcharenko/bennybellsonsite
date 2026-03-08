@@ -8,7 +8,7 @@ export default function ShowsPage() {
     <PageShell>
       <SectionHero
         title="Shows"
-        subtitle="Tour dates and events."
+        subtitle="Shows + pop-ups. Dates update as soon as they're confirmed."
       />
       <section className="mb-16">
         <h2 className="text-sm uppercase tracking-wider text-white/50 mb-4">
@@ -24,9 +24,13 @@ export default function ShowsPage() {
         <h2 className="text-sm uppercase tracking-wider text-white/50 mb-4">
           Past
         </h2>
-        {pastShows.map((show) => (
-          <ShowRow key={show.id} show={show} />
-        ))}
+        {pastShows.length === 0 ? (
+          <p className="text-white/50">No past shows listed yet.</p>
+        ) : (
+          pastShows.map((show) => (
+            <ShowRow key={show.id} show={show} />
+          ))
+        )}
       </section>
     </PageShell>
   );

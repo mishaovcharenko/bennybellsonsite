@@ -10,7 +10,7 @@ export default function WatchPage() {
     <PageShell>
       <SectionHero
         title="Watch"
-        subtitle="Music videos, live clips, interviews, BTS."
+        subtitle="Official videos, live clips, and visualizers."
       />
       {featuredVideo && featuredVideo.embedUrl && (
         <section className="mb-16">

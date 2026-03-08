@@ -8,7 +8,7 @@ export default function HistoryPage() {
     <PageShell>
       <SectionHero
         title="History"
-        subtitle="Artist lore, timeline, archive."
+        subtitle="A living archive. Updates over time."
       />
       <section>
         {timelineEvents.map((event) => (

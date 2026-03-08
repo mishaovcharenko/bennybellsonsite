@@ -448,7 +448,7 @@ export function BubbleWorld() {
       <GlassOverlay isOpen={activeModal === "unreleased"} onClose={() => setActiveModal(null)} title="Unreleased">
         <UnreleasedModalContent />
       </GlassOverlay>
-      <GlassOverlay isOpen={activeModal === "tnl"} onClose={() => setActiveModal(null)} title="TNL">
+      <GlassOverlay isOpen={activeModal === "tnl"} onClose={() => setActiveModal(null)} title="Twisted N' Luv">
         <TNLModalContent />
       </GlassOverlay>
     </div>

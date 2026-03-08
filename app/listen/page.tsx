@@ -9,6 +9,7 @@ export default function ListenPage() {
   const platforms = [
     { name: "Spotify", href: site.spotifyUrl ?? "#", description: "Stream" },
     { name: "Apple Music", href: site.appleMusicUrl ?? "#", description: "Stream" },
+    { name: "YouTube Music", href: site.youtubeMusicUrl ?? "#", description: "Stream" },
     { name: "SoundCloud", href: site.soundcloudUrl ?? "#", description: "Stream" },
   ];
 
@@ -16,7 +17,7 @@ export default function ListenPage() {
     <PageShell>
       <SectionHero
         title={site.artistName}
-        subtitle="Music hub — stream everywhere."
+        subtitle="Stream everywhere. Choose your platform."
       />
       <section className="mb-16">
         <h2 className="text-sm uppercase tracking-wider text-white/50 mb-4">

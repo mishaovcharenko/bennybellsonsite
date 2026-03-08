@@ -19,24 +19,25 @@ const spaceGrotesk = Space_Grotesk({
   weight: ["400", "500"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bennybellson.netlify.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Benny Bellson",
   description:
     "Artist world — music, unreleased, history, shows, watch, merch, and more.",
-  icons: {
-    icon: "/favicon.png",
-  },
   openGraph: {
     title: "Benny Bellson",
     description: "Artist world — music, unreleased, history, shows, watch, merch.",
     type: "website",
-    images: ["/logo.svg"],
+    url: "/",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Benny Bellson" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Benny Bellson",
     description: "Artist world — music, unreleased, history, shows, watch, merch.",
-    images: ["/logo.svg"],
+    images: ["/og-image.png"],
   },
 };
 
@@ -48,11 +49,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <link rel="icon" type="image/png" href="/favicon.png?v=3" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="stylesheet" href="https://use.typekit.net/new-spirit.css" />
       </head>
       <body
         className={`${geistSans.variable} ${instrumentSerif.variable} ${spaceGrotesk.variable} antialiased bg-black text-white min-h-screen`}
+        suppressHydrationWarning
       >
         <a
           href="#main"

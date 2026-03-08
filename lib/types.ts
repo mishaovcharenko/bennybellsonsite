@@ -32,10 +32,14 @@ export interface SiteConfig {
   appleMusicUrl?: string;
   soundcloudUrl?: string;
   youtubeUrl?: string;
+  youtubeMusicUrl?: string;
   geniusUrl?: string;
   tiktokUrl?: string;
   merchStoreUrl?: string;
   bandsintownUrl?: string;
+  bioHubUrl?: string;
+  spotifyConcertsUrl?: string;
+  inquiryEmail?: string;
 }
 
 export interface Track {
@@ -55,6 +59,7 @@ export interface UnreleasedItem {
   description?: string;
   locked: boolean;
   releaseNote?: string;
+  statusTag?: string;
   audioPreviewPlaceholder?: boolean;
 }
 
@@ -80,10 +85,11 @@ export interface Show {
 export interface Video {
   id: string;
   title: string;
-  category: "music_video" | "live" | "interview" | "bts";
+  category: "music_video" | "live" | "interview" | "bts" | "visualizer";
   duration?: string;
   thumbnailUrl?: string;
   embedUrl?: string;
+  youtubeUrl?: string;
   featured?: boolean;
 }
 

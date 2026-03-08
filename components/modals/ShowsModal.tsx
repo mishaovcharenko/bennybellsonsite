@@ -63,6 +63,9 @@ export function ShowsModalContent() {
 
   return (
     <div className="space-y-6">
+      <p className="text-sm text-white/50 mb-2">
+        Shows + pop-ups. Dates update as soon as they&apos;re confirmed.
+      </p>
       {hasUpcoming && (
         <section>
           <h3 className="text-xs uppercase tracking-wider text-white/50 mb-3">Upcoming</h3>
@@ -77,19 +80,19 @@ export function ShowsModalContent() {
       {hasPast && (
         <section>
           <h3 className="text-xs uppercase tracking-wider text-white/50 mb-3">Past</h3>
-          {pastShows.slice(0, 3).map((show) => (
+          {pastShows.map((show) => (
             <ShowRowCompact key={show.id} show={show} />
           ))}
         </section>
       )}
-      {site.bandsintownUrl && (
+      {site.spotifyConcertsUrl && (
         <a
-          href={site.bandsintownUrl}
+          href={site.spotifyConcertsUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block text-sm text-white/70 hover:text-white underline mt-2"
         >
-          View all on Bandsintown →
+          All tickets on Spotify &rarr;
         </a>
       )}
     </div>
