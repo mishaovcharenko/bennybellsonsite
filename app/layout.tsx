@@ -31,13 +31,11 @@ export const metadata: Metadata = {
     description: "Artist world — music, unreleased, history, shows, watch, merch.",
     type: "website",
     url: "/",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Benny Bellson" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Benny Bellson",
     description: "Artist world — music, unreleased, history, shows, watch, merch.",
-    images: ["/og-image.png"],
   },
 };
 
