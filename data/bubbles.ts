@@ -52,12 +52,13 @@ export const bubbles: BubbleConfig[] = [
   {
     id: "bb",
     label: "BB",
-    href: "/",
-    type: "internal",
+    href: site.spotifyUrl ?? "https://open.spotify.com/artist/5d853eyaCknmc4SynWaoR6",
+    type: "external",
     size: "xl",
     priority: 10,
     description: "Home",
     accent: true,
+    openInNewTab: true,
   },
   {
     id: "shows",
