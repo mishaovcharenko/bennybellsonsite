@@ -9,6 +9,7 @@ const categoryLabels: Record<Video["category"], string> = {
   live: "Live",
   interview: "Interview",
   bts: "BTS",
+  visualizer: "Visualizer",
 };
 
 interface VideoCardProps {
