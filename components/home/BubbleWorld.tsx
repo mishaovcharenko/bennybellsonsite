@@ -390,6 +390,12 @@ export function BubbleWorld() {
             </motion.p>
           )}
         </AnimatePresence>
+        <p className="text-white/20 text-[10px] font-sans mt-1 pointer-events-auto">
+          built by misha from{" "}
+          <a href="https://seatlock.app" target="_blank" rel="noopener noreferrer" className="underline hover:text-white/40 transition-colors">
+            SeatLock
+          </a>
+        </p>
       </div>
       <div className="absolute inset-0 w-full h-full" style={{ transform: "translateZ(0)" }}>
         {bubbles.map((config) => {
