@@ -1,6 +1,6 @@
 import { PageShell } from "@/components/layout/PageShell";
 import { SectionHero } from "@/components/ui/SectionHero";
-import { CollectiveCard } from "@/components/tnl/CollectiveCard";
+import { BandMemberCard } from "@/components/tnl/BandMemberCard";
 import { tnlData } from "@/data/tnl";
 
 export default function TNLPage() {
@@ -21,7 +21,7 @@ export default function TNLPage() {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {tnlData.members.map((member) => (
-            <CollectiveCard key={member.id} member={member} />
+            <BandMemberCard key={member.id} member={member} />
           ))}
         </div>
       </section>

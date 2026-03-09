@@ -108,7 +108,7 @@ export const bubbles: BubbleConfig[] = [
     modalType: "tnl",
     size: "lg",
     priority: 9,
-    description: "Twisted N' Luv — collective",
+    description: "Twisted N' Luv — band",
     accent: true,
   },
 ];

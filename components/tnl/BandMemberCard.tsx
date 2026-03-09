@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 import type { TNLMember } from "@/lib/types";
 
-interface CollectiveCardProps {
+interface BandMemberCardProps {
   member: TNLMember;
 }
 
-export function CollectiveCard({ member }: CollectiveCardProps) {
+export function BandMemberCard({ member }: BandMemberCardProps) {
   const Wrapper = member.link ? "a" : "div";
   const wrapperProps = member.link
     ? { href: member.link, target: "_blank", rel: "noopener noreferrer" as const }

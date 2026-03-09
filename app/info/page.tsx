@@ -31,7 +31,7 @@ export default function InfoPage() {
           <p>
             From an early grungy debut with &quot;Wasteful Games&quot; through the &quot;Posters&quot; era and
             into the breakout moment of &quot;theclubrock,&quot; the trajectory has been a steady build —
-            now at ~2.3M monthly listeners on Spotify. Part of the Twisted N&apos; Luv collective.
+            now at ~2.3M monthly listeners on Spotify. Member of the band Twisted N&apos; Luv.
           </p>
         </div>
       </section>

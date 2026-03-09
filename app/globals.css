@@ -58,9 +58,14 @@ body {
   );
 }
 
-/* Subtle radial gradient behind bubble world for depth (not flat black) */
-.bubble-world-bg {
-  background: radial-gradient(ellipse 120% 120% at 50% 40%, #0a0a0a 0%, #000 60%, #000 100%);
+/* Subtle dark overlay on top of photo so bubbles and text stay readable */
+.bubble-world-bg-overlay {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.25) 0%,
+    transparent 40%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
 }
 
 /* Reduced motion: calm floating animation for bubbles when physics disabled */

@@ -11,6 +11,7 @@ interface PhysicsBubbleProps {
   x: number;
   y: number;
   radius: number;
+  darkMode?: boolean;
   reducedMotion?: boolean;
   onModalOpen?: (modalType: NonNullable<BubbleConfig["modalType"]>) => void;
   /** When true (e.g. after a throw), suppress the next click so we don't navigate */
@@ -22,6 +23,7 @@ export function PhysicsBubble({
   x,
   y,
   radius,
+  darkMode = true,
   reducedMotion,
   onModalOpen,
   suppressNextClickRef,
@@ -52,19 +54,33 @@ export function PhysicsBubble({
   const content = (
     <motion.span
       className={cn(
-        "flex items-center justify-center rounded-full bg-white text-center font-normal text-black",
-        "cursor-pointer select-none outline-none transition-colors overflow-hidden"
+        "flex items-center justify-center rounded-full text-center font-normal",
+        "cursor-pointer select-none outline-none overflow-hidden",
+        darkMode
+          ? "text-white backdrop-blur-xl border border-white/20"
+          : "bg-white text-black"
       )}
       style={{
         width: radius * 2,
         height: radius * 2,
         fontSize: radius * 0.19,
         padding: "15%",
+        ...(darkMode && {
+          background: "rgba(255, 255, 255, 0.08)",
+          boxShadow: "inset 0 0 20px rgba(255,255,255,0.05), 0 4px 24px rgba(0,0,0,0.2)",
+        }),
+        transition: "background 0.4s, box-shadow 0.4s, color 0.4s, border-color 0.4s",
         ...bubbleTextStyle,
       }}
       whileHover={{
         scale: 1.08,
-        boxShadow: isAccent ? "0 0 32px rgba(255,255,255,0.3)" : "0 0 24px rgba(255,255,255,0.25)",
+        boxShadow: darkMode
+          ? (isAccent
+              ? "inset 0 0 20px rgba(255,255,255,0.1), 0 0 32px rgba(255,255,255,0.2)"
+              : "inset 0 0 20px rgba(255,255,255,0.08), 0 0 24px rgba(255,255,255,0.15)")
+          : (isAccent
+              ? "0 0 32px rgba(255,255,255,0.3)"
+              : "0 0 24px rgba(255,255,255,0.25)"),
         transition: { duration: 0.2 },
       }}
       whileTap={{ scale: 1.02 }}
@@ -87,12 +103,19 @@ export function PhysicsBubble({
         >
           <span
             className={cn(
-              "bubble-reduced-motion flex items-center justify-center rounded-full bg-white text-center font-normal text-black cursor-pointer"
+              "bubble-reduced-motion flex items-center justify-center rounded-full text-center font-normal cursor-pointer",
+              darkMode
+                ? "text-white backdrop-blur-xl border border-white/20"
+                : "bg-white text-black"
             )}
             style={{
               width: radius * 2,
               height: radius * 2,
               fontSize: radius * 0.19,
+              ...(darkMode && {
+                background: "rgba(255, 255, 255, 0.08)",
+                boxShadow: "inset 0 0 20px rgba(255,255,255,0.05), 0 4px 24px rgba(0,0,0,0.2)",
+              }),
               ...bubbleTextStyle,
             }}
           >
@@ -115,9 +138,21 @@ export function PhysicsBubble({
         >
           <span
             className={cn(
-              "bubble-reduced-motion flex items-center justify-center rounded-full bg-white text-center font-normal text-black cursor-pointer"
+              "bubble-reduced-motion flex items-center justify-center rounded-full text-center font-normal cursor-pointer",
+              darkMode
+                ? "text-white backdrop-blur-xl border border-white/20"
+                : "bg-white text-black"
             )}
-            style={{ width: radius * 2, height: radius * 2, fontSize: radius * 0.28, ...bubbleTextStyle }}
+            style={{
+              width: radius * 2,
+              height: radius * 2,
+              fontSize: radius * 0.28,
+              ...(darkMode && {
+                background: "rgba(255, 255, 255, 0.08)",
+                boxShadow: "inset 0 0 20px rgba(255,255,255,0.05), 0 4px 24px rgba(0,0,0,0.2)",
+              }),
+              ...bubbleTextStyle,
+            }}
           >
             {config.label}
           </span>
@@ -136,12 +171,19 @@ export function PhysicsBubble({
       >
         <span
           className={cn(
-            "bubble-reduced-motion flex items-center justify-center rounded-full bg-white text-center font-normal text-black cursor-pointer"
+            "bubble-reduced-motion flex items-center justify-center rounded-full text-center font-normal cursor-pointer",
+            darkMode
+              ? "text-white backdrop-blur-xl border border-white/20"
+              : "bg-white text-black"
           )}
           style={{
             width: radius * 2,
             height: radius * 2,
             fontSize: radius * 0.19,
+            ...(darkMode && {
+              background: "rgba(255, 255, 255, 0.08)",
+              boxShadow: "inset 0 0 20px rgba(255,255,255,0.05), 0 4px 24px rgba(0,0,0,0.2)",
+            }),
             ...bubbleTextStyle,
           }}
         >

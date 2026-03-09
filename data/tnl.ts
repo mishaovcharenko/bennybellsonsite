@@ -4,7 +4,7 @@ export const tnlData: TNLConfig = {
   title: "Twisted N' Luv",
   subtitle: "Twisted N' Luv world: music + street shows + archive.",
   manifesto:
-    "Twisted N' Luv like Guns N' Roses. A collective built in the margins — music, visuals, street shows, and community that don't fit the grid.",
+    "Twisted N' Luv like Guns N' Roses. A band built in the margins — music, visuals, street shows, and community that don't fit the grid.",
   members: [
     { id: "tnl1", name: "Benny Bellson", role: "Artist" },
     { id: "tnl2", name: "Sha Crow", role: "Artist" },

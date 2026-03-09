@@ -1,6 +1,6 @@
 "use client";
 
-import { CollectiveCard } from "@/components/tnl/CollectiveCard";
+import { BandMemberCard } from "@/components/tnl/BandMemberCard";
 import { tnlData } from "@/data/tnl";
 
 export function TNLModalContent() {
@@ -14,7 +14,7 @@ export function TNLModalContent() {
         <h3 className="text-sm uppercase tracking-wider text-white/50 mb-4">Members</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {tnlData.members.map((member) => (
-            <CollectiveCard key={member.id} member={member} />
+            <BandMemberCard key={member.id} member={member} />
           ))}
         </div>
       </section>

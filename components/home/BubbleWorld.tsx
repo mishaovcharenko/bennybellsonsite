@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import type { BubbleModalType } from "@/lib/types";
 import { bubbles, getBubbleRadius } from "@/data/bubbles";
@@ -49,6 +50,7 @@ export function BubbleWorld() {
   const [activeModal, setActiveModal] = useState<BubbleModalType | null>(null);
   const [hintDismissed, setHintDismissed] = useState(false);
   const [gravityOn, setGravityOn] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [trails, setTrails] = useState<Record<string, TrailDot[]>>({});
 
   const engineRef = useRef<ReturnType<typeof createEngine> | null>(null);
@@ -359,13 +361,32 @@ export function BubbleWorld() {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 bubble-world-bg overflow-hidden touch-none"
+      className="fixed inset-0 overflow-hidden touch-none bg-black"
       onPointerDown={(e) => { handlePointerDown(e); dismissHint(); }}
       onPointerMove={(e) => { handlePointerMove(e); dismissHint(); }}
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerUp}
     >
-      <div className="fixed top-6 right-6 z-20 pointer-events-auto">
+      <div className="fixed inset-0 z-0" aria-hidden>
+        <Image
+          src="/background-photo.png"
+          alt=""
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="100vw"
+        />
+      </div>
+      <div className="fixed inset-0 z-0 bubble-world-bg-overlay pointer-events-none" aria-hidden />
+      <div className="fixed top-6 right-6 z-20 pointer-events-auto flex gap-2">
+        <button
+          type="button"
+          onClick={() => setDarkMode((v) => !v)}
+          className="px-4 py-2 text-[11px] tracking-wide uppercase text-white/50 hover:text-white/80 border border-white/10 hover:border-white/25 rounded-sm backdrop-blur-sm bg-white/[0.03] transition-all"
+          aria-label={darkMode ? "Switch to light bubbles" : "Switch to dark bubbles"}
+        >
+          {darkMode ? "Light" : "Dark"}
+        </button>
         <button
           type="button"
           onClick={handleModeButton}
@@ -408,7 +429,7 @@ export function BubbleWorld() {
             return (
               <span
                 key={`${config.id}-trail-${i}`}
-                className="absolute rounded-full bg-white pointer-events-none"
+                className={`absolute rounded-full pointer-events-none ${darkMode ? "bg-white/30" : "bg-white"}`}
                 style={{
                   left: dot.x - size / 2,
                   top: dot.y - size / 2,
@@ -430,6 +451,7 @@ export function BubbleWorld() {
               x={pos.x}
               y={pos.y}
               radius={pos.radius}
+              darkMode={darkMode}
               onModalOpen={setActiveModal}
               suppressNextClickRef={suppressNextClickRef}
             />
