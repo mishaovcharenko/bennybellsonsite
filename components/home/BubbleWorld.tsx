@@ -367,23 +367,28 @@ export function BubbleWorld() {
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerUp}
     >
-      <div className="fixed inset-0 z-0" aria-hidden>
-        <Image
-          src="/background-photo.png"
-          alt=""
-          fill
-          className="object-cover object-center"
-          priority
-          sizes="100vw"
-        />
-      </div>
-      <div className="fixed inset-0 z-0 bubble-world-bg-overlay pointer-events-none" aria-hidden />
+      {/* Background: photo only in light mode (glass over picture); dark mode = solid black */}
+      {!darkMode && (
+        <>
+          <div className="fixed inset-0 z-0" aria-hidden>
+            <Image
+              src="/background-photo.png"
+              alt=""
+              fill
+              className="object-cover object-center"
+              priority
+              sizes="100vw"
+            />
+          </div>
+          <div className="fixed inset-0 z-0 bubble-world-bg-overlay pointer-events-none" aria-hidden />
+        </>
+      )}
       <div className="fixed top-6 right-6 z-20 pointer-events-auto flex gap-2">
         <button
           type="button"
           onClick={() => setDarkMode((v) => !v)}
           className="px-4 py-2 text-[11px] tracking-wide uppercase text-white/50 hover:text-white/80 border border-white/10 hover:border-white/25 rounded-sm backdrop-blur-sm bg-white/[0.03] transition-all"
-          aria-label={darkMode ? "Switch to light bubbles" : "Switch to dark bubbles"}
+          aria-label={darkMode ? "Switch to light mode (glass over photo)" : "Switch to dark mode (white on black)"}
         >
           {darkMode ? "Light" : "Dark"}
         </button>
@@ -397,11 +402,11 @@ export function BubbleWorld() {
         </button>
       </div>
       <div className="absolute bottom-8 left-0 right-0 flex flex-col items-center gap-2 pointer-events-none z-10">
-        <h1 className="text-white/40 text-sm font-serif font-normal">Benny Bellson</h1>
+        <h1 className={darkMode ? "text-white/60 text-sm font-serif font-normal" : "text-white/40 text-sm font-serif font-normal"}>Benny Bellson</h1>
         <AnimatePresence>
           {!hintDismissed && (
             <motion.p
-              className="text-white/30 text-xs font-sans"
+              className={darkMode ? "text-white/40 text-xs font-sans" : "text-white/30 text-xs font-sans"}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -411,7 +416,7 @@ export function BubbleWorld() {
             </motion.p>
           )}
         </AnimatePresence>
-        <p className="text-white/20 text-[10px] font-sans mt-1 pointer-events-auto">
+        <p className={darkMode ? "text-white/30 text-[10px] font-sans mt-1 pointer-events-auto" : "text-white/20 text-[10px] font-sans mt-1 pointer-events-auto"}>
           built by misha from{" "}
           <a href="https://seatlock.app" target="_blank" rel="noopener noreferrer" className="hover:text-white/40 transition-colors">
             SeatLock
@@ -429,7 +434,7 @@ export function BubbleWorld() {
             return (
               <span
                 key={`${config.id}-trail-${i}`}
-                className={`absolute rounded-full pointer-events-none ${darkMode ? "bg-white/30" : "bg-white"}`}
+                className={`absolute rounded-full pointer-events-none ${darkMode ? "bg-white" : "bg-white/30"}`}
                 style={{
                   left: dot.x - size / 2,
                   top: dot.y - size / 2,

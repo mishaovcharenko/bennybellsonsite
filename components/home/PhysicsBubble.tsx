@@ -51,21 +51,22 @@ export function PhysicsBubble({
   const bubbleTextStyle = { fontFamily: bubbleFont, textTransform: "uppercase" as const, fontWeight: 500, letterSpacing: "0.02em" };
 
   const isAccent = config.accent === true;
+  /* darkMode = white bubbles on black; light mode = glass bubbles over photo */
   const content = (
     <motion.span
       className={cn(
         "flex items-center justify-center rounded-full text-center font-normal",
         "cursor-pointer select-none outline-none overflow-hidden",
         darkMode
-          ? "text-white backdrop-blur-xl border border-white/20"
-          : "bg-white text-black"
+          ? "bg-white text-black"
+          : "text-white backdrop-blur-xl border border-white/20"
       )}
       style={{
         width: radius * 2,
         height: radius * 2,
         fontSize: radius * 0.19,
         padding: "15%",
-        ...(darkMode && {
+        ...(!darkMode && {
           background: "rgba(255, 255, 255, 0.08)",
           boxShadow: "inset 0 0 20px rgba(255,255,255,0.05), 0 4px 24px rgba(0,0,0,0.2)",
         }),
@@ -76,11 +77,11 @@ export function PhysicsBubble({
         scale: 1.08,
         boxShadow: darkMode
           ? (isAccent
-              ? "inset 0 0 20px rgba(255,255,255,0.1), 0 0 32px rgba(255,255,255,0.2)"
-              : "inset 0 0 20px rgba(255,255,255,0.08), 0 0 24px rgba(255,255,255,0.15)")
+              ? "0 0 32px rgba(255,255,255,0.4)"
+              : "0 0 24px rgba(255,255,255,0.3)")
           : (isAccent
-              ? "0 0 32px rgba(255,255,255,0.3)"
-              : "0 0 24px rgba(255,255,255,0.25)"),
+              ? "inset 0 0 20px rgba(255,255,255,0.1), 0 0 32px rgba(255,255,255,0.2)"
+              : "inset 0 0 20px rgba(255,255,255,0.08), 0 0 24px rgba(255,255,255,0.15)"),
         transition: { duration: 0.2 },
       }}
       whileTap={{ scale: 1.02 }}
@@ -105,14 +106,14 @@ export function PhysicsBubble({
             className={cn(
               "bubble-reduced-motion flex items-center justify-center rounded-full text-center font-normal cursor-pointer",
               darkMode
-                ? "text-white backdrop-blur-xl border border-white/20"
-                : "bg-white text-black"
+                ? "bg-white text-black"
+                : "text-white backdrop-blur-xl border border-white/20"
             )}
             style={{
               width: radius * 2,
               height: radius * 2,
               fontSize: radius * 0.19,
-              ...(darkMode && {
+              ...(!darkMode && {
                 background: "rgba(255, 255, 255, 0.08)",
                 boxShadow: "inset 0 0 20px rgba(255,255,255,0.05), 0 4px 24px rgba(0,0,0,0.2)",
               }),
@@ -140,14 +141,14 @@ export function PhysicsBubble({
             className={cn(
               "bubble-reduced-motion flex items-center justify-center rounded-full text-center font-normal cursor-pointer",
               darkMode
-                ? "text-white backdrop-blur-xl border border-white/20"
-                : "bg-white text-black"
+                ? "bg-white text-black"
+                : "text-white backdrop-blur-xl border border-white/20"
             )}
             style={{
               width: radius * 2,
               height: radius * 2,
               fontSize: radius * 0.28,
-              ...(darkMode && {
+              ...(!darkMode && {
                 background: "rgba(255, 255, 255, 0.08)",
                 boxShadow: "inset 0 0 20px rgba(255,255,255,0.05), 0 4px 24px rgba(0,0,0,0.2)",
               }),
@@ -173,14 +174,14 @@ export function PhysicsBubble({
           className={cn(
             "bubble-reduced-motion flex items-center justify-center rounded-full text-center font-normal cursor-pointer",
             darkMode
-              ? "text-white backdrop-blur-xl border border-white/20"
-              : "bg-white text-black"
+              ? "bg-white text-black"
+              : "text-white backdrop-blur-xl border border-white/20"
           )}
           style={{
             width: radius * 2,
             height: radius * 2,
             fontSize: radius * 0.19,
-            ...(darkMode && {
+            ...(!darkMode && {
               background: "rgba(255, 255, 255, 0.08)",
               boxShadow: "inset 0 0 20px rgba(255,255,255,0.05), 0 4px 24px rgba(0,0,0,0.2)",
             }),
